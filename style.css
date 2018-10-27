@@ -1,0 +1,141 @@
+body,
+body * {
+  vertical-align: baseline;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  color: #000;
+}
+
+#wrapper {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  border: 1px solid black;
+  box-sizing: border-box;
+  background: #fff;
+}
+@media only screen and (min-device-width : 768px){
+  #wrapper {
+    width: 300px;
+    height: 250px;
+  }
+}
+
+.head {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  padding: 5px 0;
+  height: 8vh;
+}
+
+@media only screen and (min-device-width : 768px){
+  .head {
+    height: 20%;
+  }
+}
+
+@media only screen and (max-device-width : 767px){
+  #logo {
+    width: 20%;
+  }
+}
+
+.item_arrow {
+  cursor: pointer;
+  width: 10%;
+  height: 60%;
+  border-radius: 50%;
+  background: black;
+}
+@media only screen and (min-device-width : 768px){
+  .item_arrow {
+    width: 6%;
+    height: 36%;
+  }
+}
+
+i {
+  margin-top: 2px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+}
+@media only screen and (min-device-width : 768px){
+  i {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+}
+
+i.prev {
+ border-right:1em solid white;
+ margin-right: 2px;
+}
+@media only screen and (min-device-width : 768px){
+  i.prev {
+    border-right:5px solid white;
+  }
+}
+
+i.next {
+  border-left: 1em solid white;
+  margin-left: 2px;
+}
+@media only screen and (min-device-width : 768px){
+  i.next {
+    border-left:5px solid white;
+  }
+}
+
+#slider{
+  overflow: hidden;
+  position:absolute;
+  width: 100%;
+  height: 40vh;
+  bottom:0;
+  border-top: 5px solid black;
+}
+@media only screen and (min-device-width : 768px){
+  #slider{
+    height:190px;
+  }
+}
+
+#slides{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  overflow: hidden;
+  float: left;
+  padding:0px;
+  margin:0px;
+}
+
+.slide{
+  position: absolute;
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.slide img {
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-device-width : 768px){
+  .slide img{
+    width: 300px;
+  }
+}
