@@ -1,39 +1,45 @@
-let slides = document.querySelectorAll(".slide");
+
+var slides;
+var slidesNum;
+
 let navPrev = document.getElementById("arrow_prev");
 let navNext = document.getElementById("arrow_next");
-var slidesNum = slides.length;
 var prevSlideID = null;
 var currentSlideID = 0;
 var isAnimating = false;
 var isAutoPlay = false;
 
-var url =  'data.json'
 var ourRequest = new XMLHttpRequest();
 
-ourRequest.open('GET', url, true);
+ourRequest.open('GET',  'data.json', true);
 ourRequest.onload = function(){
 	var Data = JSON.parse(ourRequest.responseText);
 	renderInfo(Data);
 }
+
 ourRequest.send()
 
 
 function renderInfo(data){
 
 	Object.keys(data).forEach(function(key,index) {
-		var element = document.getElementById("slider-"+index);
-		var newElement = '<a href="'+data[key].click_url+'" target="_blank"><img src="img/slider/'+data[key].img_url+'"></a>';
+		var element = document.getElementById("slides");
+		var newElement = '<li class="slide" id="slider-0'+index+'"><a href="'+data[key].click_url+'" target="_blank"><img src="img/slider/'+data[key].img_url+'"></a></li>';
 		element.insertAdjacentHTML( 'beforeend', newElement )
 	 });
-init();
 
+	 slides = document.querySelectorAll(".slide");
+	 slidesNum = slides.length;
+
+	 init();
 }
 
-
 function init() {
+
 	TweenLite.set(slides, {
 		left: "-100%"
 	});
+
 	navPrev.addEventListener("click", prevSlide);
 	navNext.addEventListener("click", nextSlide);
 	gotoSlide(0, 0);
@@ -47,7 +53,6 @@ function prevSlide() {
 	}
 	stopAutoPlay();
 	gotoSlide(slideToGo, 1, "prev");
-
 	startAutoPlay();
 }
 
@@ -58,8 +63,10 @@ function nextSlide() {
 	}
 	stopAutoPlay();
 	gotoSlide(slideToGo, 1, "next");
-
 	startAutoPlay();
+	keyboardArrows();
+
+
 }
 
 function gotoSlide(slideID, _time, _direction) {
@@ -124,4 +131,21 @@ function startAutoPlay(immediate) {
 function stopAutoPlay() {
   isAutoPlay = false;
 	TweenLite.killDelayedCallsTo(play);
+}
+
+function keyboardArrows(){
+
+	document.addEventListener("keydown", function(event) {
+		switch(event.key) {
+
+		    case "ArrowLeft":
+		      prevSlide()
+		      break;
+
+		    case "ArrowRight":
+		      nextSlide()
+		      break;
+		  }
+	});
+
 }
