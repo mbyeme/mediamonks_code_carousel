@@ -1,7 +1,7 @@
 # Carousel Code - Media Monks exercise
 
 [Exercise brief]
-Whit your gut and sweat you will be making the slicker image carousel in the internet. This carouse should be controlled by clicking the round arrow buttons. The carousel should be populated with provided feed. Adding extra functionality is always a plus.
+With your gut and sweat you will be making the slicker image carousel in the internet. This carouse should be controlled by clicking the round arrow buttons. The carousel should be populated with provided feed. Adding extra functionality is always a plus.
 
 ## Installation
 
